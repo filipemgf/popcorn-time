@@ -4,10 +4,10 @@ import { Movie } from './Movie';
 export function Main(props) {
 	return (
 		<div className="Main">
-			{props.moviesToDisplay.map((movieObj) => {
+			{props.moviesToDisplay.map((movieObj, index) => {
 				return (
 					<Movie
-						key={movieObj.id}
+						key={index}
 						movieDetails={movieObj}
 						deleteMovie={props.deleteMovie}
 					/>

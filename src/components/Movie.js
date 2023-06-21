@@ -25,15 +25,15 @@ export function Movie(props) {
 
 					<div className="genres">
 						<h4>Genres:</h4>
-						{props.movieDetails.genres.map((genre) => {
-							return <div>{genre}</div>;
+						{props.movieDetails.genres.map((genre, index) => {
+							return <div key={index}>{genre}</div>;
 						})}
 					</div>
 				</div>
 
 				<button
 					style={{ marginTop: '2rem' }}
-					onClick={() => props.deleteMovie(props.movieDetails.id)}
+					onClick={() => props.deleteMovie(props.movieDetails.title)}
 				>
 					Delete
 				</button>
