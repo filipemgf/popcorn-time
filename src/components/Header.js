@@ -1,9 +1,14 @@
 import './Header.css';
 
-export function Header() {
+export function Header(props) {
 	return (
 		<header className="Header">
-			<h1>This is the header</h1>
+			<h1>Popcorn Time 🍿</h1>
+			<h2>
+				{props.moviesToDisplay.length > 0
+					? `Displaying ${props.moviesToDisplay.length} movies`
+					: 'No movies to display'}
+			</h2>
 		</header>
 	);
 }
