@@ -1,5 +1,6 @@
 import './Main.css';
 import moviesArray from '../data/movies.json';
+import { Movie } from './Movie';
 import { useState } from 'react';
 
 export function Main() {
@@ -13,6 +14,8 @@ export function Main() {
 		});
 	};
 
+	/* This builds the message variable */
+
 	/* 	let message = '';
 	if (moviesToDisplay.length > 0) {
 		message = <>Displaying {moviesToDisplay.length} movies</>;
@@ -22,6 +25,7 @@ export function Main() {
 
 	return (
 		<div className="Main">
+			{/* Another way of displaying the message */}
 			{/* <h1>{message}</h1> */}
 
 			<h1>
@@ -30,34 +34,13 @@ export function Main() {
 					: 'No movies to display'}
 			</h1>
 
-			{moviesToDisplay.map((element) => {
+			{moviesToDisplay.map((movieObj) => {
 				return (
-					<div key={element.id} className="card">
-						{element.imgURL ? (
-							<img src={element.imgURL} alt={`${element.title} cover`} />
-						) : (
-							<img
-								src="https://dummyimage.com/180x230/000/ffffff.png&text=No+image+in+database"
-								alt={`${element.title} cover`}
-							/>
-						)}
-
-						{/* <img src={element.imgURL} alt={`${element.title} cover`} /> */}
-
-						<div>
-							{element.id} - {element.title}
-						</div>
-						<div>Rating: {element.rating} ⭐</div>
-
-						<div className="genres">
-							Genres:
-							{element.genres.map((genre) => {
-								return <div>{genre}</div>;
-							})}
-						</div>
-
-						<button onClick={() => deleteMovie(element.id)}>Delete</button>
-					</div>
+					<Movie
+						key={movieObj.id}
+						movieDetails={movieObj}
+						deleteMovie={deleteMovie}
+					/>
 				);
 			})}
 		</div>
