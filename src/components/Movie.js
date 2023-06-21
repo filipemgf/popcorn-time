@@ -17,19 +17,22 @@ export function Movie(props) {
 				<div>
 					<h2>{props.movieDetails.title}</h2>
 				</div>
-				<div>
-					<h4>Rating:</h4> {props.movieDetails.rating} /10 ⭐
-				</div>
 
-				<div className="genres">
-					<h4>Genres:</h4>
-					{props.movieDetails.genres.map((genre) => {
-						return <div>{genre}</div>;
-					})}
+				<div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+					<div>
+						<h4>Rating:</h4> {props.movieDetails.rating} /10 ⭐
+					</div>
+
+					<div className="genres">
+						<h4>Genres:</h4>
+						{props.movieDetails.genres.map((genre) => {
+							return <div>{genre}</div>;
+						})}
+					</div>
 				</div>
 
 				<button
-					style={{ marginTop: '1rem' }}
+					style={{ marginTop: '2rem' }}
 					onClick={() => props.deleteMovie(props.movieDetails.id)}
 				>
 					Delete
